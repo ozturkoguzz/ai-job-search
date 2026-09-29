@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { font-family: -apple-system, sans-serif; width: 340px; padding: 12px; }
+  h3 { margin: 0 0 8px; font-size: 14px; }
+  h4 { margin: 12px 0 4px; font-size: 12px; color: #333; border-bottom: 1px solid #eee; padding-bottom: 2px; }
+  label { display: block; font-size: 11px; color: #555; margin-top: 6px; }
+  input, textarea { width: 100%; box-sizing: border-box; padding: 5px; font-size: 12px; margin-top: 2px; }
+  textarea { resize: vertical; min-height: 40px; }
+  button { width: 100%; margin-top: 10px; padding: 8px; font-size: 13px; cursor: pointer; }
+  #fill { background: #2563eb; color: white; border: none; border-radius: 4px; }
+  #aiFill { background: #7c3aed; color: white; border: none; border-radius: 4px; }
+  #aiFill:disabled { opacity: 0.6; cursor: not-allowed; }
+  #save { background: #eee; border: 1px solid #ccc; border-radius: 4px; margin-top: 6px; }
+  #status { font-size: 11px; margin-top: 8px; color: #16a34a; min-height: 14px; }
+  .note { font-size: 10px; color: #999; margin-top: 8px; }
+  .section { max-height: 300px; overflow-y: auto; }
+</style>
+</head>
+<body>
+  <h3>Job Application Autofill</h3>
+
+  <div class="section">
+    <h4>Personal Info</h4>
+    <label>First name</label>
+    <input id="firstName">
+    <label>Last name</label>
+    <input id="lastName">
+    <label>Email</label>
+    <input id="email">
+    <label>Phone</label>
+    <input id="phone">
+
+    <h4>Location</h4>
+    <label>City</label>
+    <input id="city">
+    <label>Country</label>
+    <input id="country">
+    <label>State / Province</label>
+    <input id="state">
+    <label>Zip / Postal code</label>
+    <input id="zip">
+    <label>Address</label>
+    <input id="address">
+
+    <h4>Links</h4>
+    <label>LinkedIn URL</label>
+    <input id="linkedin">
+    <label>GitHub URL</label>
+    <input id="github">
+    <label>Website URL</label>
+    <input id="website">
+
+    <h4>Current Role</h4>
+    <label>Current company</label>
+    <input id="currentCompany">
+    <label>Current title</label>
+    <input id="currentTitle">
+
+    <h4>Screening Questions</h4>
+    <label>Work authorized? (Yes/No)</label>
+    <input id="workAuthorized">
+    <label>Need visa sponsorship? (Yes/No)</label>
+    <input id="visaSponsorship">
+    <label>Salary expectation</label>
+    <input id="salaryExpectation">
+    <label>Office/relocation answer</label>
+    <input id="officeRelocate">
+    <label>Years of experience</label>
+    <input id="yearsExperience">
+    <label>Notice period / earliest start</label>
+    <input id="noticePeriod">
+    <label>Available from (date)</label>
+    <input id="availableFrom">
+    <label>How did you hear about us?</label>
+    <input id="heardAbout">
+    <label>Languages</label>
+    <input id="languages">
+    <label>Willing to travel? (Yes/No)</label>
+    <input id="willingToTravel">
+    <label>German proficiency</label>
+    <input id="germanProficiency">
+    <label>Education level</label>
+    <input id="educationLevel">
+
+    <h4>Cover Letter / Summary (for text fields)</h4>
+    <label>Cover letter text</label>
+    <textarea id="coverLetter" rows="3"></textarea>
+    <label>"Why this role" / summary</label>
+    <textarea id="summary" rows="3"></textarea>
+  </div>
+
+  <label style="display:flex;align-items:center;gap:6px;margin-top:8px;font-size:11px;color:#666">
+    <input type="checkbox" id="overwrite"> Overwrite browser-autofilled city/country/name
+  </label>
+  <button id="fill">⚡ Fill this page (pattern matching)</button>
+  <button id="aiFill">🤖 AI Fill (Gemini)</button>
+  <button id="save">Save profile</button>
+  <div id="status"></div>
+
+  <h4>Gemini API</h4>
+  <label>Endpoint</label>
+  <select id="geminiEndpoint" style="width:100%;padding:5px;font-size:12px;margin-top:2px">
+    <option value="vertex">Vertex AI (AQ... key)</option>
+    <option value="aistudio">AI Studio (AIza... key)</option>
+  </select>
+  <label>API Key</label>
+  <input id="geminiKey" type="password" placeholder="AQ... or AIza...">
+  <label>Model</label>
+  <select id="geminiModel" style="width:100%;padding:5px;font-size:12px;margin-top:2px">
+    <option value="gemini-3.5-flash">gemini-3.5-flash (cheap)</option>
+    <option value="gemini-3-pro">gemini-3-pro (smart)</option>
+  </select>
+  <div class="note">AI Fill extracts form fields → asks Gemini for values → fills everything. Costs ~$0.01 per form. Resume PDFs still must be attached by hand.</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

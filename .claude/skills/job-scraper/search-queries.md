@@ -1,90 +1,227 @@
 # Search Queries for Job Scraper
 
-<!-- SETUP: Customize these queries based on your skills, target roles, and location -->
-
 ## Installed portal CLIs (primary for `/scrape`)
 
-`/scrape` discovers every portal skill under `.agents/skills/*/SKILL.md` and runs its CLI first. Shipped country-agnostic CLIs include `linkedin-search` and `freehire-search`; Danish demos and any skill you add with `/add-portal` are included the same way. You do **not** need a matching `site:` line below for those CLIs to run.
+`/scrape` discovers every portal skill under `.agents/skills/*/SKILL.md` and runs its CLI first. Shipped country-agnostic CLIs include `linkedin-search` and `freehire-search`.
 
 The `site:` query templates in this file are the **WebSearch fallback** — for portals without a CLI, company career pages, or when a CLI fails.
 
-**Language scope:** write every query category in every language listed in your CLAUDE.md Languages table (typically 1-2, sometimes more). A posting requiring a language you have *not* declared, as a job condition, is excluded before scoring; a posting requiring a *higher level* than you declared in a language you *do* work in is flagged for your own judgment, not excluded — see `04-job-evaluation.md`'s Language Gate, the single source of truth for this rule. Translate each category's keywords rather than machine-translating word-for-word (e.g. "Frontend Developer" -> "Desarrollador Frontend", not a literal word-for-word translation) if you work in more than one language.
+**Language scope:** English only.
+
+## Target Role Titles
+
+- Data Engineer
+- Senior Data Engineer
+- Big Data Engineer
+- ETL Developer
+- Data Pipeline Engineer
+- Cloud Data Engineer
+- Data Platform Engineer
+- Analytics Engineer
+- Data Architect
+
+**Excluded:** Staff, Lead, Principal, ML Engineer, MLOps.
+
+## Search Profiles
+
+1. 🇩🇪 Germany — English-language roles only
+2. 🇦🇪 UAE — all roles
+3. 🇬🇧 UK — all roles
+4. 🇨🇭 Switzerland — English-language roles only
+5. 🇱🇺 Luxembourg — English-language roles only
 
 ## Search Sites
 
-Primary (your market's job boards - scaffold one with `/add-portal`):
-- **[YOUR_JOB_BOARD]** - your market's largest general job board
-- **linkedin.com/jobs** - LinkedIn job listings (filter: [YOUR_COUNTRY] / [YOUR_CITY]); also covered by `linkedin-search` CLI
-- **[YOUR_INDUSTRY_JOB_BOARD]** - a niche/industry board for your field (optional)
-- **[YOUR_ADDITIONAL_JOB_BOARD]** - another major board for your market (optional)
+Primary:
+- **linkedin.com/jobs** — `linkedin-search` CLI
+- **freehire.io** — `freehire-search` CLI
 
-Secondary (company career pages via Google):
-- Direct Google searches with `site:` filters for known target companies
+Per-country (add via `/add-portal`):
+- **stepstone.de**, **indeed.de** — Germany
+- **bayt.com**, **gulftalent.com** — UAE
+- **indeed.co.uk**, **reed.co.uk**, **totaljobs.com** — UK
+- **jobs.ch**, **swissdevjobs.ch** — Switzerland
+- **indeed.lu**, **moovijob.com** — Luxembourg
 
 ## Query Categories
 
-Queries are grouped by priority. Write **each category in every language from your Languages table** (see Language scope above). Combine each query with your location terms (e.g. your city, region, or metro area) where the site supports it.
+### Priority 1: Core Data Engineering Titles
 
-**Organize by function, not job title.** The same underlying work carries different titles across companies and markets (a "Data Scientist" role at one employer may be posted as "Insights Analyst" or "Data Consultant" at another). Name each priority category after the function it covers, and list several plausible job titles as query variants within that category rather than betting an entire priority tier on one exact title string.
-
-### Priority 1: [YOUR_PRIMARY_ROLE_TYPE]
-
-These match your strongest and most desired career direction.
-
+**LinkedIn (all markets):**
 ```
-site:[YOUR_JOB_BOARD] "[YOUR_PRIMARY_JOB_TITLE_1]" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_PRIMARY_JOB_TITLE_2]" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_KEY_SKILL]" [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE_1]" [YOUR_COUNTRY]
-```
-
-### Priority 2: [YOUR_DOMAIN_EXPERTISE]
-
-These match your domain expertise.
-
-```
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] OR [YOUR_REGION]
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_2] [YOUR_COUNTRY]
-site:linkedin.com/jobs [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] [YOUR_COUNTRY]
-```
-
-### Priority 3: [YOUR_ADJACENT_ROLE_TYPE]
-
-Adjacent roles you could pivot into.
-
-```
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_1]" [YOUR_KEY_SKILL] [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_2]" [YOUR_KEY_SKILL] [YOUR_CITY]
+site:linkedin.com/jobs "Data Engineer" Germany
+site:linkedin.com/jobs "Senior Data Engineer" Germany
+site:linkedin.com/jobs "Big Data Engineer" Germany
+site:linkedin.com/jobs "ETL Developer" Germany
+site:linkedin.com/jobs "Data Pipeline Engineer" Germany
+site:linkedin.com/jobs "Cloud Data Engineer" Germany
+site:linkedin.com/jobs "Data Engineer" Berlin OR Munich OR Hamburg OR Frankfurt
+site:linkedin.com/jobs "Data Engineer" Dubai OR "Abu Dhabi"
+site:linkedin.com/jobs "Senior Data Engineer" UAE
+site:linkedin.com/jobs "Big Data Engineer" UAE
+site:linkedin.com/jobs "ETL Developer" UAE
+site:linkedin.com/jobs "Data Engineer" London OR Manchester OR Edinburgh
+site:linkedin.com/jobs "Senior Data Engineer" "United Kingdom"
+site:linkedin.com/jobs "Big Data Engineer" "United Kingdom"
+site:linkedin.com/jobs "ETL Developer" "United Kingdom"
+site:linkedin.com/jobs "Cloud Data Engineer" "United Kingdom"
+site:linkedin.com/jobs "Data Engineer" Zurich OR Geneva OR Basel
+site:linkedin.com/jobs "Senior Data Engineer" Switzerland
+site:linkedin.com/jobs "Big Data Engineer" Switzerland
+site:linkedin.com/jobs "Data Engineer" Luxembourg
+site:linkedin.com/jobs "Senior Data Engineer" Luxembourg
 ```
 
-### Priority 4: Broader Technical / Consulting
+**Indeed (per country):**
+```
+site:indeed.de "Data Engineer" English
+site:indeed.de "Senior Data Engineer" English
+site:indeed.de "Big Data Engineer" English
+site:indeed.de "ETL Developer" English
+site:indeed.co.uk "Data Engineer"
+site:indeed.co.uk "Senior Data Engineer"
+site:indeed.co.uk "Big Data Engineer"
+site:indeed.co.uk "ETL Developer"
+site:indeed.co.uk "Data Pipeline Engineer"
+site:indeed.ae "Data Engineer" Dubai
+site:indeed.ae "Senior Data Engineer"
+site:indeed.ch "Data Engineer" English
+site:indeed.lu "Data Engineer"
+```
 
-Wider net for general technical roles.
+**Country-specific boards:**
+```
+site:stepstone.de "Data Engineer" English
+site:stepstone.de "Big Data Engineer" English
+site:stepstone.de "ETL Developer" English
+site:bayt.com "Data Engineer" Dubai OR "Abu Dhabi"
+site:gulftalent.com "Data Engineer" UAE
+site:reed.co.uk "Data Engineer"
+site:reed.co.uk "Senior Data Engineer"
+site:totaljobs.com "Data Engineer"
+site:jobs.ch "Data Engineer" English
+site:swissdevjobs.ch "Data Engineer"
+site:moovijob.com "Data Engineer" Luxembourg
+```
+
+### Priority 2: Data Platform & Architecture
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_KEY_SKILL] developer [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_KEY_SKILL] developer" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "technical consultant" [YOUR_DOMAIN] [YOUR_CITY]
+site:linkedin.com/jobs "Data Platform Engineer" Germany OR UK OR UAE OR Switzerland OR Luxembourg
+site:linkedin.com/jobs "Analytics Engineer" Germany OR UK OR UAE OR Switzerland OR Luxembourg
+site:linkedin.com/jobs "Data Architect" Germany OR UK OR UAE OR Switzerland OR Luxembourg
+site:linkedin.com/jobs "Cloud Data Engineer" Germany OR UK OR UAE OR Switzerland
 ```
+
+### Priority 3: Keyword-based (tech stack match)
+
+```
+site:linkedin.com/jobs Kafka Spark "Data Engineer" Germany OR UK
+site:linkedin.com/jobs Airflow dbt "Data Engineer" Germany OR UK OR Switzerland
+site:linkedin.com/jobs Databricks "Data Engineer" Germany OR UK OR UAE
+site:linkedin.com/jobs "Data Mesh" engineer Germany OR UK
+site:linkedin.com/jobs "real-time" "data pipeline" Germany OR UK OR UAE
+```
+
+### Priority 4: Target Company Career Pages
+
+**Germany:**
+```
+site:n26.com/careers "Data Engineer"
+site:deliveryhero.com/careers "Data Engineer"
+site:jobs.zalando.com "Data Engineer"
+site:sap.com/careers "Data Engineer"
+site:careers.siemens.com "Data Engineer"
+site:flixbus.com/careers "Data Engineer"
+```
+
+**UAE:**
+```
+site:careem.com/careers "Data Engineer"
+site:noon.com/careers "Data Engineer"
+site:talabat.com/careers "Data Engineer"
+```
+
+**UK:**
+```
+site:careers.revolut.com "Data Engineer"
+site:monzo.com/careers "Data Engineer"
+site:careers.wise.com "Data Engineer"
+site:deliveroo.com/careers "Data Engineer"
+```
+
+**Switzerland:**
+```
+site:careers.google.com "Data Engineer" Zurich
+site:ubs.com/careers "Data Engineer"
+```
+
+**Luxembourg:**
+```
+site:amazon.jobs "Data Engineer" Luxembourg
+site:careers.pwc.com "Data Engineer" Luxembourg
+```
+
+## Exclusion Keywords
+
+**Exclude any job posting whose description contains these keywords/phrases:**
+
+- `Snowflake` — not in tech stack, skip Snowflake-centric roles
+- `Deutsch` — indicates German-language requirement
+- `Deutsch-` — compound German-language terms (e.g. Deutsch-Kenntnisse)
+- `Deutschkenntnisse` — "German language skills required"
+- `fließend Deutsch` — "fluent German"
+- `Muttersprache Deutsch` — "native German"
+- `verhandlungssicher Deutsch` — "business-fluent German"
+- `auf Deutsch` — "in German"
+
+**How to apply:** When scraping results, scan job description text for these keywords. If any match is found, exclude the posting from results. This is a post-scrape filter — apply after fetching, before ranking.
+
+**Note:** These are description-level filters. A posting title in English with German-language requirements buried in the description should still be caught and excluded.
 
 ## Location Filter
 
-When evaluating results, verify the job location is within reasonable commute distance from your home. Define acceptable areas:
-- [YOUR_CITY] and surrounding areas
-- [ACCEPTABLE_AREA_1]
-- [ACCEPTABLE_AREA_2]
-- [BORDERLINE_AREA] (borderline - ~X min by transit)
-- [TOO_FAR_AREA] (too far)
+### Germany
+- All German cities ✅ (if English-language)
+- Remote from Germany ✅
+
+### UAE
+- Dubai, Abu Dhabi ✅
+- Other emirates: FLAG
+
+### UK
+- London, Manchester, Edinburgh, Birmingham, Bristol, Cambridge ✅
+- Remote from UK ✅
+
+### Switzerland
+- Zurich, Geneva, Basel, Bern ✅
+- Remote from Switzerland ✅
+
+### Luxembourg
+- Luxembourg City ✅
+- Remote from Luxembourg ✅
 
 ## Language Filter
 
-Your working languages and levels are in CLAUDE.md's Languages table. When filtering scraped results, apply `04-job-evaluation.md`'s Language Gate: a posting requiring a language you haven't declared at all is excluded; a posting requiring a higher level than you declared in a language you do work in is not excluded, flag it clearly instead (see `job-scraper/SKILL.md`'s Step 3 "Quick Fit Assessment" for how the flag surfaces in `/scrape` output). Postings simply *written* in a language you don't work in, that don't require it on the job, are fine.
+**English-language postings only across all profiles.**
+
+- English required → PASS (C1)
+- Turkish required → PASS (Native)
+- German B2+ required → FLAG (have A2)
+- German A2/basic → PASS
+- French required → FAIL
+- Arabic required → FAIL
+- Any other language required → FAIL
 
 ## Date Filter
 
-Only include jobs posted within the last 14 days, or with an application deadline that has not yet passed. If a posting date cannot be determined, include it but flag as "date unknown".
+Jobs posted within last 14 days, or open deadline. Unknown date → include but flag.
 
 ## Adapting Queries
 
-If the user specifies a focus area, select queries from the matching category and also generate 2-3 custom queries for that focus. For example:
-- "/scrape [focus_area]" -> relevant category queries + custom focus-specific queries
+- "/scrape germany" → Profile 1 only
+- "/scrape uae" → Profile 2 only
+- "/scrape uk" → Profile 3 only
+- "/scrape switzerland" → Profile 4 only
+- "/scrape luxembourg" → Profile 5 only
+- "/scrape all" → All profiles

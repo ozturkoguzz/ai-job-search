@@ -1,10 +1,7 @@
-# Job Application Assistant for [YOUR_NAME]
-
-<!-- SETUP: This file is populated by running /setup -->
-<!-- After running /setup, all [PLACEHOLDER] tokens will be replaced with your actual information -->
+# Job Application Assistant for Oguzhan Ozturk
 
 ## Role
-This repo is a job application workspace. Claude acts as a career advisor and application assistant for [YOUR_NAME], helping with:
+This repo is a job application workspace. Claude acts as a career advisor and application assistant for Oguzhan Ozturk, helping with:
 1. **Job fit evaluation** - Assess job postings against your profile (skills, experience, behavioral traits)
 2. **CV tailoring** - Adapt existing CV templates (LaTeX/moderncv) to target specific roles
 3. **Cover letter writing** - Draft targeted cover letters using existing templates (LaTeX)
@@ -13,79 +10,113 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 
 ## Candidate Profile
 
-<!-- This section is auto-populated by /setup. You can also fill it in manually. -->
-
 ### Identity
-- **Name:** [YOUR_NAME]
-- **Location:** [YOUR_CITY], [YOUR_COUNTRY] ([YOUR_COMMUTE_CONSTRAINTS])
+- **Name:** Oguzhan Ozturk
+- **Location:** Ankara, Turkey (Open to relocation: Germany, UAE, UK, Switzerland, Luxembourg)
 - **Languages:**
   | Language | Level |
   |----------|-------|
-  | [LANGUAGE] | [LEVEL] |
-  <!-- Every language you work in professionally, with your level (CEFR, "native," "professional
-  working proficiency," whatever your CV/LinkedIn use - no need to force it into one scale). An
-  undeclared language is a hard deal-breaker if a posting requires it; a declared language at a
-  lower level than a posting wants is flagged for your own judgment, not auto-rejected. See
-  04-job-evaluation.md's Language Gate. -->
-- **CV language:** [YOUR_CV_LANGUAGE] <!-- English unless your market expects otherwise; /setup asks -->
+  | Turkish | Native |
+  | English | C1 (Professional working proficiency) |
+  | German | A2 (Basic — lived in Hamburg 2022-2024) |
+- **CV language:** English
 
-- **Status:** [YOUR_EMPLOYMENT_STATUS]
-- **LinkedIn headline:** "[YOUR_LINKEDIN_HEADLINE]"
+- **Status:** Employed at Garanti Teknoloji (open to new opportunities)
+- **LinkedIn headline:** "Senior Data Engineer"
 
 ### Education
-<!-- List your degrees, most recent first -->
-- **[DEGREE_LEVEL] in [FIELD]** ([YEAR_START]-[YEAR_END]) - [INSTITUTION]
-  - Thesis: "[THESIS_TITLE]"
-  - Topics: [KEY_TOPICS]
+- **B.Sc. in Electrical, Electronics and Communications Engineering** (2015-2020) - Izmir Institute of Technology
+  - Thesis: "Developing Self-Driving Car Capabilities in CARLA Simulator Environment: Perception of Dynamic Objects in the Drivable Region"
+  - Topics: Self-driving car perception, ML, signal processing
 
 ### Professional Experience
-<!-- List your roles, most recent first -->
-- **[JOB_TITLE]** ([START_DATE] - [END_DATE]) - **[COMPANY]** ([LOCATION])
-  - [KEY_RESPONSIBILITY_1]
-  - [KEY_RESPONSIBILITY_2]
-  - [KEY_ACHIEVEMENT]
+- **Senior Data Engineer** (Jan 2024 - Present) - **Garanti Teknoloji** (Ankara, Turkey)
+  - Own financial reporting pipelines serving BBVA group across 10+ regulatory domains
+  - Built AI-powered metric discovery platform (LLM + vector embeddings)
+  - Automated PCAF/PACTA sustainability reporting pipelines for BBVA
+  - Reduced data quality incidents by ~70% with automated DQ rules and SLA monitoring
+
+- **Senior Data Engineer** (Jan 2022 - Jan 2024) - **FREENOW** (Hamburg, Germany)
+  - Engineered real-time pricing pipeline: 500K+ events/sec, sub-100ms latency, 27 EU cities
+  - Led Data Mesh migration — reduced cross-team dependencies by 40%
+  - Built DataOps framework (Great Expectations, dbt) across 50+ pipelines — incidents down 65%
+  - Replaced 6 third-party connectors with custom ELT pipelines — saving $70K/year
+
+- **Data Engineer** (Jan 2021 - Jan 2022) - **Huawei** (Istanbul, Turkey)
+  - Architected Big Data solutions for AppGallery (50M+ MAU)
+  - Rewrote HiveQL pipeline to Spark: 8h → 1h runtime (87.5% improvement)
+
+- **Data Engineer (Contract)** (Jun 2020 - Nov 2020) - **Intrava** (Amsterdam, Netherlands)
+  - ETL pipelines on Azure for 10TB+ real estate datasets — 3x query performance
 
 ### Technical Skills
-- **Primary:** [YOUR_PRIMARY_SKILLS]
-- **Secondary:** [YOUR_SECONDARY_SKILLS]
-- **Domain:** [YOUR_DOMAIN_EXPERTISE]
-- **Software:** [YOUR_TOOLS_AND_SOFTWARE]
-
-### Certifications
-<!-- List relevant certifications with dates -->
-- **[CERTIFICATION_NAME]** - [HOURS]h - completed [DATE]
-
-### Publications
-<!-- List peer-reviewed publications, if any -->
-- [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL].
-
-### Awards
-<!-- List relevant awards, hackathons, competitions -->
-- [AWARD_NAME] - [EVENT] ([YEAR])
+- **Primary:** Python, SQL, PySpark, Apache Spark, Databricks, Kafka, Flink, Airflow, dbt
+- **Secondary:** AWS (S3, Redshift), Azure (Data Factory), Docker, CI/CD, Oracle Data Integrator
+- **Domain:** Financial services, Mobility/Transportation, Telecom, Real estate
+- **Software:** SAP Power Designer, Great Expectations, Git, Claude Code
 
 ### Behavioral Profile
-<!-- Your behavioral assessment results (PI, DISC, Myers-Briggs, or self-assessment) -->
-- **[TRAIT_1]** - [DESCRIPTION]
-- **[TRAIT_2]** - [DESCRIPTION]
-- **Strengths:** [YOUR_STRENGTHS]
-- **Growth areas:** [YOUR_GROWTH_AREAS]
-- **Thrives in:** [YOUR_IDEAL_ENVIRONMENT]
+- **Builder** - Thrives designing systems from scratch (PCAF pipelines, metric discovery platform, pricing infrastructure)
+- **Cross-functional communicator** - Partnered with 8+ teams at FREENOW; coordinates with BBVA teams across Turkey/Spain
+- **Strengths:** End-to-end ownership, regulatory compliance, data quality, mentoring
+- **Growth areas:** Could benefit from more formal architecture certifications
+- **Thrives in:** Environments with autonomy, greenfield projects, impact-driven teams
 
 ### What Excites You
-<!-- What motivates you professionally -->
-- [PASSION_1]
-- [PASSION_2]
+- Building data platforms that directly impact business decisions
+- AI-augmented engineering and GenAI/LLM applications in data
+- Real-time streaming systems at scale
+- Data Mesh and modern data architecture patterns
 
 ### Target Sectors
-<!-- Industries and companies you're targeting -->
-- [SECTOR_1]: [EXAMPLE_COMPANIES]
-- [SECTOR_2]: [EXAMPLE_COMPANIES]
+- Financial Services / Banking: Deutsche Bank, N26, Revolut, ING, UBS, Wise, Monzo, Emirates NBD, Mashreq
+- Mobility / Transportation: Uber, Bolt, Tier, FlixBus, Deliveroo, Talabat
+- Tech / E-commerce: SAP, Delivery Hero, Zalando, Noon, Amazon, Google
+- Energy / Sustainability: Siemens Energy, ENGIE
+- Consulting / Big4: PwC, Deloitte (data engineering roles)
+- UAE Tech: Careem, Noon, Talabat, Emirates NBD
+- UK Fintech: Revolut, Monzo, Wise, Starling
+- Swiss Finance: UBS, Google Zurich
 
 ### Deal-breakers
-<!-- Hard constraints on job search. Language requirements are handled separately and
-automatically from your Languages table above - don't duplicate them here. -->
-- [DEALBREAKER_1]
-- [DEALBREAKER_2]
+- No roles requiring non-English working language (German B2+, French, Arabic etc. as hard requirement)
+- No roles requiring security clearance / citizenship gate
+- No roles where data engineering is secondary to pure analytics/BI reporting
+- No Snowflake-centric roles (not in tech stack)
+- Exclude postings containing: Snowflake, Deutsch, Deutsch-, Deutschkenntnisse, fließend Deutsch
+- On-site OK if in target countries (Germany, UAE, UK, Switzerland, Luxembourg)
+
+### Search Profiles
+
+#### Profile 1: Germany (all English-language roles)
+- **Location:** Berlin, Munich, Hamburg, Frankfurt, Stuttgart, Düsseldorf, Cologne — remote/hybrid/on-site
+- **Language filter:** English-language postings only (German not required — A2 level)
+- **Role types:** Data Engineer, Senior Data Engineer, Big Data Engineer, ETL Developer, Data Pipeline Engineer, Cloud Data Engineer, Data Platform Engineer, Analytics Engineer, Data Architect
+- **Notes:** Lived in Hamburg 2022-2024, have German phone number (+49), open to relocation
+
+#### Profile 2: UAE (all roles)
+- **Location:** Dubai, Abu Dhabi — any arrangement
+- **Language filter:** English postings
+- **Role types:** Data Engineer, Senior Data Engineer, Big Data Engineer, ETL Developer, Data Pipeline Engineer, Cloud Data Engineer, Data Platform Engineer, Analytics Engineer, Data Architect
+- **Notes:** Open to relocation, tax-free compensation
+
+#### Profile 3: UK (all roles)
+- **Location:** London, Manchester, Edinburgh, Birmingham — remote/hybrid/on-site
+- **Language filter:** English (native market)
+- **Role types:** Data Engineer, Senior Data Engineer, Big Data Engineer, ETL Developer, Data Pipeline Engineer, Cloud Data Engineer, Data Platform Engineer, Analytics Engineer, Data Architect
+- **Notes:** Open to relocation, visa sponsorship needed
+
+#### Profile 4: Switzerland (all roles)
+- **Location:** Zurich, Geneva, Basel, Bern — remote/hybrid/on-site
+- **Language filter:** English-language postings only
+- **Role types:** Data Engineer, Senior Data Engineer, Big Data Engineer, ETL Developer, Data Pipeline Engineer, Cloud Data Engineer, Data Platform Engineer, Analytics Engineer, Data Architect
+- **Notes:** Open to relocation, high compensation market
+
+#### Profile 5: Luxembourg (all roles)
+- **Location:** Luxembourg City — remote/hybrid/on-site
+- **Language filter:** English-language postings only
+- **Role types:** Data Engineer, Senior Data Engineer, Big Data Engineer, ETL Developer, Data Pipeline Engineer, Cloud Data Engineer, Data Platform Engineer, Analytics Engineer, Data Architect
+- **Notes:** Open to relocation, strong fintech/banking sector
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)

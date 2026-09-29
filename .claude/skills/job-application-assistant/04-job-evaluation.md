@@ -60,9 +60,9 @@ How well do the required/preferred skills align with the candidate's capabilitie
 | 40-59 | Partial match, significant upskilling needed |
 | 0-39 | Fundamental mismatch |
 
-**Strong match areas:** [YOUR_PRIMARY_SKILLS]
-**Moderate match areas:** [YOUR_SECONDARY_SKILLS]
-**Weak match areas:** [SKILLS_YOU_LACK]
+**Strong match areas:** Python, SQL, PySpark, Apache Spark, Databricks, Kafka, Flink, Airflow, dbt, AWS (S3/Redshift), Data Mesh, Data Vault, ETL/ELT, Data Quality, Great Expectations
+**Moderate match areas:** Azure (Data Factory), Docker, CI/CD, GenAI/LLM, RAG, Vector Embeddings, Oracle Data Integrator, SAP Power Designer
+**Weak match areas:** GCP (no production experience), Terraform/IaC, Kubernetes, Scala, Java, Go, Snowflake, dbt Cloud (used dbt Core)
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for? Match on the function and nature of the work performed, not the literal job title - a "Data Consultant" and a "Data Scientist" role can be functionally identical.
@@ -74,9 +74,9 @@ Does work history align with what they're looking for? Match on the function and
 | 40-59 | Adjacent experience, would need to make the case |
 | 0-39 | Unrelated experience |
 
-**Strong:** [YOUR_DIRECT_EXPERIENCE_DOMAINS]
-**Moderate:** [YOUR_ADJACENT_EXPERIENCE]
-**Entry-level:** [ROLES_WITH_LIMITED_EXPERIENCE]
+**Strong:** Financial services data engineering (Garanti/BBVA), Mobility/transportation data platforms (FREENOW), Real-time streaming (500K+ events/sec), Data Mesh architecture, Regulatory reporting (PCAF/PACTA/TCMB/BDDK/ECB), DataOps & data governance
+**Moderate:** Telecom/app platform analytics (Huawei AppGallery 50M+ MAU), Real estate data (Intrava/Azure), AI-powered tooling (metric discovery platform)
+**Entry-level:** Pure ML engineering, Frontend/full-stack, DevOps/SRE
 
 ### 3. Behavioral/Culture Fit (0-100)
 Does the role and company culture match the behavioral profile?
@@ -107,19 +107,19 @@ Does this role advance career goals and contain tasks that energize?
 | 0-39 | Dead end or backwards step |
 
 **Career goals:**
-- [YOUR_CAREER_GOAL_1]
-- [YOUR_CAREER_GOAL_2]
-- [YOUR_CAREER_GOAL_3]
+- Progress toward Staff/Principal Data Engineer or Data Platform Lead role
+- Build and own large-scale data platforms with real business impact
+- Work at intersection of data engineering and AI/GenAI
 
 **Motivation filter:** Evaluate not just whether you *can* do the tasks, but whether the tasks will *energize* you. Consider:
-- Tasks that energize: [YOUR_ENERGIZING_TASKS]
-- Tasks that drain: [YOUR_DRAINING_TASKS]
+- Tasks that energize: Building systems from scratch, real-time streaming, data platform architecture, AI-augmented engineering, cross-team collaboration, mentoring
+- Tasks that drain: Pure BI/reporting with no engineering depth, maintenance-only roles, heavy bureaucracy with no autonomy
 - Non-task factors: leadership style, department culture, company values, degree of autonomy
 
 **Life situation alignment:** Consider personal constraints:
-- **Security**: [YOUR_FINANCIAL_SITUATION_CONTEXT]
-- **Flexibility**: [YOUR_SCHEDULE_CONSTRAINTS]
-- **Professional development**: [YOUR_GROWTH_PRIORITIES]
+- **Security**: Currently employed — can be selective, no urgency
+- **Flexibility**: Open to remote, hybrid, or relocation (Germany, UAE)
+- **Professional development**: Seeking environments with modern data stack, AI adoption, and growth path to Staff+ level
 
 ### 6. Salary Benchmark (Optional)
 
