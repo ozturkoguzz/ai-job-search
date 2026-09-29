@@ -89,10 +89,10 @@ function getProfile() {
 
 function load() {
   chrome.storage.local.get(["profile", "geminiKey"], (data) => {
-    const profile = data.profile || DEFAULTS;
+    const profile = { ...DEFAULTS, ...(data.profile || {}) };
     FIELDS.forEach((f) => {
       const el = document.getElementById(f);
-      if (el) el.value = profile[f] || "";
+      if (el) el.value = profile[f] || DEFAULTS[f] || "";
     });
     if (data.geminiKey) document.getElementById("geminiKey").value = data.geminiKey;
   });
