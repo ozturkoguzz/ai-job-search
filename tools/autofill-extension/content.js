@@ -474,7 +474,11 @@ function fillDateInput(el, value) {
 function fillContentEditable(el, value) {
   if (el.textContent.trim()) return false;
   el.focus();
-  el.innerHTML = value.replace(/\n/g, "<br>");
+  el.textContent = "";
+  value.split(/\n/).forEach((line, i) => {
+    if (i > 0) el.appendChild(document.createElement("br"));
+    el.appendChild(document.createTextNode(line));
+  });
   el.dispatchEvent(new Event("input", { bubbles: true }));
   el.dispatchEvent(new Event("change", { bubbles: true }));
   el.dispatchEvent(new Event("blur", { bubbles: true }));

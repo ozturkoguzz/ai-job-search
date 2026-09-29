@@ -6,7 +6,7 @@ const FIELDS = [
   "workAuthorized", "visaSponsorship", "salaryExpectation", "officeRelocate",
   "yearsExperience", "noticePeriod", "availableFrom", "heardAbout", "languages",
   "germanProficiency", "willingToTravel", "educationLevel",
-  "coverLetter", "summary",
+  "coverLetter", "summary", "resumeContext",
 ];
 
 const DEFAULTS = {
@@ -22,7 +22,7 @@ const DEFAULTS = {
   linkedin: "https://linkedin.com/in/oguzozturkk",
   github: "https://github.com/ozturkoguzz",
   website: "https://oguzhanozturk.dev",
-  currentCompany: "",
+  currentCompany: "Garanti BBVA Teknoloji",
   currentTitle: "Senior Data Engineer",
   workAuthorized: "No",
   visaSponsorship: "Yes",
@@ -38,6 +38,36 @@ const DEFAULTS = {
   educationLevel: "Bachelor's degree",
   coverLetter: "",
   summary: "I am excited about the opportunity to bring my 6+ years of data engineering experience across fintech, mobility, and telecom into a team where I can grow technically and contribute to building scalable, impactful data systems.",
+  resumeContext: `SENIOR DATA ENGINEER | 6+ years | Python, SQL, PySpark, Spark, Databricks, Kafka, Flink, Airflow, dbt
+
+GARANTI BBVA TEKNOLOJI (Jan 2024–Present) — Ankara, Turkey
+- Own financial reporting pipelines serving BBVA group across 10+ regulatory domains (TCMB, BDDK, ECB)
+- Built AI-powered metric discovery platform using LLM reasoning over vector-embedded table metadata
+- Automated PCAF/PACTA sustainability reporting pipelines from scratch — loan portfolio carbon assessment
+- Led PySpark ETL proof-of-concept, producing migration roadmap from legacy Oracle to Spark
+- Enterprise data modeling in SAP Power Designer — Data Vault and dimensional models
+- Reduced data quality incidents ~70% with automated DQ rules and SLA monitoring
+
+FREENOW (Jan 2022–Jan 2024) — Hamburg, Germany
+- Real-time dynamic pricing pipeline: 500K+ events/sec, Kafka + Flink, sub-100ms latency, 27 EU cities
+- Led Data Mesh migration — reduced cross-team dependencies by 40%
+- DataOps framework (Great Expectations, dbt) across 50+ pipelines — incidents down 65%
+- Built ELT pipelines on Databricks/PySpark (AWS) replacing 6 third-party connectors — saving $70K/year
+- Geospatial analytics platform with OpenStreetMap for ML demand forecasting across 27 cities
+
+HUAWEI (Jan 2021–Jan 2022) — Istanbul, Turkey
+- Big Data solutions for AppGallery (50M+ MAU) — ML-based data quality and anomaly detection
+- Rewrote HiveQL pipeline to Spark: 8h → 1h runtime (87.5% improvement)
+
+INTRAVA (Jun 2020–Nov 2020) — Amsterdam, Netherlands (Contract)
+- ETL on Azure for 10TB+ real estate datasets — 3x query performance
+
+EDUCATION: B.Sc. EEE — Izmir Institute of Technology (2015-2020)
+Thesis: Self-driving car perception in CARLA simulator — dynamic object detection
+
+TECH: Python, SQL, PySpark, Spark, Databricks, Kafka, Flink, Airflow, dbt, AWS (S3/Redshift), Azure (Data Factory), Docker, CI/CD, SAP Power Designer, Great Expectations, GenAI/LLM, RAG, Claude Code
+DOMAINS: Financial services, mobility/transportation, telecom, real estate
+LANGUAGES: Turkish (Native), English (C1), German (A2)`,
 };
 
 function status(text) {
@@ -54,24 +84,20 @@ function getProfile() {
 }
 
 function load() {
-  chrome.storage.local.get(["profile", "geminiKey", "geminiModel", "geminiEndpoint"], (data) => {
+  chrome.storage.local.get(["profile", "geminiKey"], (data) => {
     const profile = data.profile || DEFAULTS;
     FIELDS.forEach((f) => {
       const el = document.getElementById(f);
       if (el) el.value = profile[f] || "";
     });
     if (data.geminiKey) document.getElementById("geminiKey").value = data.geminiKey;
-    if (data.geminiModel) document.getElementById("geminiModel").value = data.geminiModel;
-    if (data.geminiEndpoint) document.getElementById("geminiEndpoint").value = data.geminiEndpoint;
   });
 }
 
 function save() {
   const profile = getProfile();
   const geminiKey = document.getElementById("geminiKey").value.trim();
-  const geminiModel = document.getElementById("geminiModel").value;
-  const geminiEndpoint = document.getElementById("geminiEndpoint").value;
-  chrome.storage.local.set({ profile, geminiKey, geminiModel, geminiEndpoint }, () => {
+  chrome.storage.local.set({ profile, geminiKey }, () => {
     status("Saved.");
     setTimeout(() => status(""), 1500);
   });
@@ -124,17 +150,23 @@ function buildPrompt(profile, fields) {
     2
   );
 
-  return `You fill job application forms. Given the candidate profile and form fields, return a JSON object mapping each field index (as string) to the value to fill.
+  const resumeContext = profile.resumeContext || "";
+
+  return `You fill job application forms. Given the candidate profile, resume, and form fields, return a JSON object mapping each field index (as string) to the value to fill.
 
 CANDIDATE PROFILE:
 ${profileStr}
 
+RESUME / EXPERIENCE:
+${resumeContext}
+
 EXTRA CONTEXT:
-- Candidate has a valid work permit in Germany (not tied to an employer)
+- Candidate needs visa sponsorship for EU/UK/UAE — does NOT currently have work authorization outside Turkey
 - For demographic/EEO questions (gender, age, disability, veteran, ethnicity, parent/caretaker): select "Prefer not to disclose" or "Decline to self-identify" — whichever option exists
 - For consent/privacy/terms checkboxes: return "check"
 - For "how did you hear" questions: select "LinkedIn"
 - Candidate full name: ${profile.firstName || ""} ${profile.lastName || ""}
+- When answering custom questions about experience, projects, or skills: use ONLY facts from the resume above. Never fabricate projects, metrics, or technologies not listed. Keep answers concise (2-4 sentences) and specific.
 
 FORM FIELDS:
 ${fieldsStr}
@@ -149,16 +181,9 @@ RULES:
 - Return ONLY valid JSON, no explanation`;
 }
 
-async function callGemini(apiKey, model, prompt) {
-  const endpoint = document.getElementById("geminiEndpoint").value;
-  let url;
-  if (endpoint === "vertex") {
-    // Vertex AI Express Mode — uses v1beta1 + different path
-    url = `https://aiplatform.googleapis.com/v1beta1/publishers/google/models/${model}:generateContent?key=${apiKey}`;
-  } else {
-    // AI Studio — standard path
-    url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-  }
+async function callGemini(apiKey, prompt) {
+  const model = "gemini-2.5-flash-lite";
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
   const res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -180,9 +205,8 @@ async function callGemini(apiKey, model, prompt) {
 async function aiFill() {
   const profile = getProfile();
   const apiKey = document.getElementById("geminiKey").value.trim();
-  const model = document.getElementById("geminiModel").value;
   if (!apiKey) { status("Enter Gemini API key first."); return; }
-  chrome.storage.local.set({ geminiKey: apiKey, geminiModel: model });
+  chrome.storage.local.set({ geminiKey: apiKey });
 
   const btn = document.getElementById("aiFill");
   btn.disabled = true;
@@ -227,11 +251,11 @@ async function aiFill() {
     });
 
     if (emptyFields.length === 0) { status("All fields already filled!"); return; }
-    status(`${bestFields.length - emptyFields.length} filled by patterns, ${emptyFields.length} remaining → Gemini ${model}...`);
+    status(`${bestFields.length - emptyFields.length} filled by patterns, ${emptyFields.length} remaining → Gemini 2.5 Flash Lite...`);
 
     // Step 3: Send only empty fields to Gemini
     const prompt = buildPrompt(profile, emptyFields);
-    const aiMappings = await callGemini(apiKey, model, prompt);
+    const aiMappings = await callGemini(apiKey, prompt);
 
     // Remap AI response indices back to original field indices
     // Gemini returns keys matching the `index` property we sent, not array positions

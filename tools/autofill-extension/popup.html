@@ -90,6 +90,10 @@
     <textarea id="coverLetter" rows="3"></textarea>
     <label>"Why this role" / summary</label>
     <textarea id="summary" rows="3"></textarea>
+
+    <h4>Resume Context (for AI custom questions)</h4>
+    <label>Key experience, projects, and skills — Gemini uses this to answer custom questions accurately</label>
+    <textarea id="resumeContext" rows="8" placeholder="Paste condensed resume highlights here..."></textarea>
   </div>
 
   <label style="display:flex;align-items:center;gap:6px;margin-top:8px;font-size:11px;color:#666">
@@ -100,20 +104,10 @@
   <button id="save">Save profile</button>
   <div id="status"></div>
 
-  <h4>Gemini API</h4>
-  <label>Endpoint</label>
-  <select id="geminiEndpoint" style="width:100%;padding:5px;font-size:12px;margin-top:2px">
-    <option value="vertex">Vertex AI (AQ... key)</option>
-    <option value="aistudio">AI Studio (AIza... key)</option>
-  </select>
+  <h4>Gemini API (AI Studio)</h4>
   <label>API Key</label>
-  <input id="geminiKey" type="password" placeholder="AQ... or AIza...">
-  <label>Model</label>
-  <select id="geminiModel" style="width:100%;padding:5px;font-size:12px;margin-top:2px">
-    <option value="gemini-3.5-flash">gemini-3.5-flash (cheap)</option>
-    <option value="gemini-3-pro">gemini-3-pro (smart)</option>
-  </select>
-  <div class="note">AI Fill extracts form fields → asks Gemini for values → fills everything. Costs ~$0.01 per form. Resume PDFs still must be attached by hand.</div>
+  <input id="geminiKey" type="password" placeholder="AIza...">
+  <div class="note">AI Fill extracts form fields → asks Gemini 2.5 Flash Lite for values → fills everything. Resume PDFs still must be attached by hand.</div>
 
 <script src="popup.js"></script>
 </body>
