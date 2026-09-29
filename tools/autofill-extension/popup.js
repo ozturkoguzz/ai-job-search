@@ -36,7 +36,11 @@ const DEFAULTS = {
   languages: "English (Fluent), Turkish (Native), German (Basic)",
   willingToTravel: "Yes",
   educationLevel: "Bachelor's degree",
-  coverLetter: "",
+  coverLetter: `I am a Senior Data Engineer at Garanti Teknoloji (Garanti BBVA), where I own production data pipelines across 10+ domains and recently built an AI-powered metric discovery platform using LLM reasoning over vector-embedded metadata — turning manual schema lookup into a self-serve capability for hundreds of internal users. With over 5 years of experience building data infrastructure across financial services, mobility, telecom, and real estate in Turkey, Germany, and the Netherlands, I bring deep expertise in Airflow, dbt, PySpark, Databricks, Kafka, Flink, and increasingly AI-augmented engineering tooling.
+
+At FREENOW in Hamburg, I engineered real-time streaming pipelines processing 500K+ events/sec across 27 European cities, led a Data Mesh migration reducing cross-team dependencies by 40%, and implemented DataOps frameworks that cut data incidents by 65%. I actively build with Claude Code and LLM-driven workflows daily — from automated job search pipelines to intelligent form-filling browser extensions — and bring a practical, shipping-oriented approach to applying AI in data engineering contexts.
+
+I am looking to take the next step in my career within a technically ambitious, international environment where I can combine my data platform expertise with my growing AI engineering skills to build intelligent, scalable systems. I would welcome the opportunity to discuss how my background aligns with your team's goals.`,
   summary: "I am excited about the opportunity to bring my 6+ years of data engineering experience across fintech, mobility, and telecom into a team where I can grow technically and contribute to building scalable, impactful data systems.",
   resumeContext: `SENIOR DATA ENGINEER | 6+ years | Python, SQL, PySpark, Spark, Databricks, Kafka, Flink, Airflow, dbt
 
