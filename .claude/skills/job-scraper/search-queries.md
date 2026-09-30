@@ -154,6 +154,9 @@ site:wellfound.com/jobs "Data Engineer" remote
 site:workatastartup.com "Data Engineer"
 site:weworkremotely.com "Data Engineer"
 site:remoteok.com "Data Engineer"
+site:otta.com "Data Engineer" remote
+site:hired.com "Data Engineer" remote
+site:arc.dev "Data Engineer" remote
 ```
 
 **Notes:**
