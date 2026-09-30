@@ -29,6 +29,7 @@ The `site:` query templates in this file are the **WebSearch fallback** — for 
 3. 🇬🇧 UK — all roles
 4. 🇨🇭 Switzerland — English-language roles only
 5. 🇱🇺 Luxembourg — English-language roles only
+6. 🌍 Global Remote — remote-first startups (USA, EU, Nordics, UK) hiring globally
 
 ## Search Sites
 
@@ -162,6 +163,36 @@ site:amazon.jobs "Data Engineer" Luxembourg
 site:careers.pwc.com "Data Engineer" Luxembourg
 ```
 
+### Priority 5: Global Remote (Profile 6)
+
+**LinkedIn (remote filter):**
+```
+site:linkedin.com/jobs "Data Engineer" remote
+site:linkedin.com/jobs "Senior Data Engineer" remote
+site:linkedin.com/jobs "Data Platform Engineer" remote
+site:linkedin.com/jobs "Analytics Engineer" remote
+site:linkedin.com/jobs Kafka Spark "Data Engineer" remote
+site:linkedin.com/jobs Airflow dbt "Data Engineer" remote
+site:linkedin.com/jobs Databricks "Data Engineer" remote
+```
+
+**Remote-first job boards (WebSearch fallback):**
+```
+site:wellfound.com/jobs "Data Engineer" remote
+site:otta.com "Data Engineer" remote
+site:workatastartup.com "Data Engineer"
+site:weworkremotely.com "Data Engineer"
+site:remoteok.com "Data Engineer"
+site:hired.com "Data Engineer" remote
+```
+
+**Notes:**
+- LinkedIn CLI: use `--remote remote` flag for remote-only results
+- Freehire CLI: use `--remote remote` flag
+- Candidate works from Turkey (UTC+3) — best overlap with EU/UK/East-Coast US timezones
+- EOR/contractor arrangement acceptable — many remote-first startups use Deel, Remote.com, Oyster
+- Filter out roles requiring specific country residency (e.g. "must be US-based") unless remote-from-anywhere is explicit
+
 ## Exclusion Keywords
 
 **Exclude any job posting whose description contains these keywords/phrases:**
@@ -201,6 +232,13 @@ site:careers.pwc.com "Data Engineer" Luxembourg
 - Luxembourg City ✅
 - Remote from Luxembourg ✅
 
+### Global Remote (Profile 6)
+- Remote-first / remote-from-anywhere ✅
+- Remote within EU/EEA ✅ (candidate in Turkey, but EOR/contractor arrangement works)
+- Remote within US only ❌ (unless explicitly allows international remote)
+- Hybrid in non-target country ❌
+- Must be based in specific country (not Turkey) ❌
+
 ## Language Filter
 
 **English-language postings only across all profiles.**
@@ -224,4 +262,5 @@ Jobs posted within last 14 days, or open deadline. Unknown date → include but 
 - "/scrape uk" → Profile 3 only
 - "/scrape switzerland" → Profile 4 only
 - "/scrape luxembourg" → Profile 5 only
+- "/scrape remote" → Profile 6 only
 - "/scrape all" → All profiles

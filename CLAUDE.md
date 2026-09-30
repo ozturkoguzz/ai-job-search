@@ -118,6 +118,14 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 - **Role types:** Data Engineer, Senior Data Engineer, Big Data Engineer, ETL Developer, Data Pipeline Engineer, Cloud Data Engineer, Data Platform Engineer, Analytics Engineer, Data Architect
 - **Notes:** Open to relocation, strong fintech/banking sector
 
+#### Profile 6: Global Remote (remote-first startups)
+- **Location:** Remote from Turkey (UTC+3) — targeting companies in USA, EU, Nordics, UK that hire globally
+- **Language filter:** English-language postings only
+- **Role types:** Data Engineer, Senior Data Engineer, Big Data Engineer, ETL Developer, Data Pipeline Engineer, Cloud Data Engineer, Data Platform Engineer, Analytics Engineer, Data Architect
+- **Work arrangement:** Remote-first, EOR/contractor (Deel, Remote.com, Oyster) acceptable
+- **Portals:** LinkedIn (--remote remote), Wellfound, Otta, YC Work at a Startup, We Work Remotely, RemoteOK
+- **Notes:** Best timezone overlap with EU/UK and US East Coast. Filter out roles requiring specific country residency unless "remote-from-anywhere" is explicit. Tax residency remains Turkey.
+
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)
 - `cover_letters/` - LaTeX cover letters (custom cover.cls template)

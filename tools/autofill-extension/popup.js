@@ -186,7 +186,7 @@ RULES:
 }
 
 async function callGemini(apiKey, prompt) {
-  const model = "gemini-2.5-flash-lite";
+  const model = "gemini-3.1-flash-lite";
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
   const res = await fetch(url, {
     method: "POST",
@@ -255,7 +255,7 @@ async function aiFill() {
     });
 
     if (emptyFields.length === 0) { status("All fields already filled!"); return; }
-    status(`${bestFields.length - emptyFields.length} filled by patterns, ${emptyFields.length} remaining → Gemini 2.5 Flash Lite...`);
+    status(`${bestFields.length - emptyFields.length} filled by patterns, ${emptyFields.length} remaining → Gemini 3.1 Flash Lite...`);
 
     // Step 3: Send only empty fields to Gemini
     const prompt = buildPrompt(profile, emptyFields);

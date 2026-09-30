@@ -86,7 +86,7 @@ def save_state(path: Path, doc: dict) -> None:
         raise
 
 
-def parse_iso(value) -> date | None:
+def parse_iso(value) -> "date | None":
     """Rule 6's defensive-parse rule: anything that is not YYYY-MM-DD is treated
     exactly like an absent value - never compared, never guessed at."""
     if not isinstance(value, str) or not ISO.match(value.strip()):
@@ -122,7 +122,7 @@ def tracker_pairs(path: Path) -> set[tuple[str, str]]:
     return pairs
 
 
-def entry_location_verdict(entry: dict) -> str | None:
+def entry_location_verdict(entry: dict) -> "str | None":
     """location_verdict, falling back to a legacy verdict stored under `location`
     (Step 4: "an entry ranked before this rename may carry a legacy PASS/FAIL/
     FLAG string in `location`")."""
