@@ -12,7 +12,7 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 
 ### Identity
 - **Name:** Oguzhan Ozturk
-- **Location:** Ankara, Turkey (Open to relocation: Germany, UAE, UK, Switzerland, Luxembourg)
+- **Location:** Ankara, Turkey (Open to relocation: Germany, UAE, UK; Remote from Turkey for USA)
 - **Languages:**
   | Language | Level |
   |----------|-------|
@@ -76,7 +76,7 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 - Consulting / Big4: PwC, Deloitte (data engineering roles)
 - UAE Tech: Careem, Noon, Talabat, Emirates NBD
 - UK Fintech: Revolut, Monzo, Wise, Starling
-- Swiss Finance: UBS, Google Zurich
+- USA Remote: Stripe, Airbnb, Databricks, dbt Labs, Confluent, Snowplow
 
 ### Deal-breakers
 - No roles requiring non-English working language (German B2+, French, Arabic etc. as hard requirement)
@@ -84,7 +84,7 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 - No roles where data engineering is secondary to pure analytics/BI reporting
 - No Snowflake-centric roles (not in tech stack)
 - Exclude postings containing: Snowflake, Deutsch, Deutsch-, Deutschkenntnisse, fließend Deutsch
-- On-site OK if in target countries (Germany, UAE, UK, Switzerland, Luxembourg)
+- On-site OK if in target countries (Germany, UAE, UK)
 
 ### Search Profiles
 
@@ -106,25 +106,13 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 - **Role types:** Data Engineer, Senior Data Engineer, Big Data Engineer, ETL Developer, Data Pipeline Engineer, Cloud Data Engineer, Data Platform Engineer, Analytics Engineer, Data Architect
 - **Notes:** Open to relocation, visa sponsorship needed
 
-#### Profile 4: Switzerland (all roles)
-- **Location:** Zurich, Geneva, Basel, Bern — remote/hybrid/on-site
-- **Language filter:** English-language postings only
-- **Role types:** Data Engineer, Senior Data Engineer, Big Data Engineer, ETL Developer, Data Pipeline Engineer, Cloud Data Engineer, Data Platform Engineer, Analytics Engineer, Data Architect
-- **Notes:** Open to relocation, high compensation market
-
-#### Profile 5: Luxembourg (all roles)
-- **Location:** Luxembourg City — remote/hybrid/on-site
-- **Language filter:** English-language postings only
-- **Role types:** Data Engineer, Senior Data Engineer, Big Data Engineer, ETL Developer, Data Pipeline Engineer, Cloud Data Engineer, Data Platform Engineer, Analytics Engineer, Data Architect
-- **Notes:** Open to relocation, strong fintech/banking sector
-
-#### Profile 6: Global Remote (remote-first startups)
-- **Location:** Remote from Turkey (UTC+3) — targeting companies in USA, EU, Nordics, UK that hire globally
+#### Profile 4: USA Remote (remote-first companies hiring globally)
+- **Location:** Remote from Turkey (UTC+3) — targeting USA companies that hire internationally
 - **Language filter:** English-language postings only
 - **Role types:** Data Engineer, Senior Data Engineer, Big Data Engineer, ETL Developer, Data Pipeline Engineer, Cloud Data Engineer, Data Platform Engineer, Analytics Engineer, Data Architect
 - **Work arrangement:** Remote-first, EOR/contractor (Deel, Remote.com, Oyster) acceptable
 - **Portals:** LinkedIn (--remote remote), Wellfound, Otta, YC Work at a Startup, We Work Remotely, RemoteOK
-- **Notes:** Best timezone overlap with EU/UK and US East Coast. Filter out roles requiring specific country residency unless "remote-from-anywhere" is explicit. Tax residency remains Turkey.
+- **Notes:** Best timezone overlap with US East Coast. Filter out roles requiring US residency unless "remote-from-anywhere" is explicit. Tax residency remains Turkey.
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)

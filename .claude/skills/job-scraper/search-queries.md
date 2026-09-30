@@ -27,9 +27,7 @@ The `site:` query templates in this file are the **WebSearch fallback** — for 
 1. 🇩🇪 Germany — English-language roles only
 2. 🇦🇪 UAE — all roles
 3. 🇬🇧 UK — all roles
-4. 🇨🇭 Switzerland — English-language roles only
-5. 🇱🇺 Luxembourg — English-language roles only
-6. 🌍 Global Remote — remote-first startups (USA, EU, Nordics, UK) hiring globally
+4. 🇺🇸 USA Remote — remote-first companies hiring internationally
 
 ## Search Sites
 
@@ -41,8 +39,6 @@ Per-country (add via `/add-portal`):
 - **stepstone.de**, **indeed.de** — Germany
 - **bayt.com**, **gulftalent.com** — UAE
 - **indeed.co.uk**, **reed.co.uk**, **totaljobs.com** — UK
-- **jobs.ch**, **swissdevjobs.ch** — Switzerland
-- **indeed.lu**, **moovijob.com** — Luxembourg
 
 ## Query Categories
 
@@ -66,11 +62,6 @@ site:linkedin.com/jobs "Senior Data Engineer" "United Kingdom"
 site:linkedin.com/jobs "Big Data Engineer" "United Kingdom"
 site:linkedin.com/jobs "ETL Developer" "United Kingdom"
 site:linkedin.com/jobs "Cloud Data Engineer" "United Kingdom"
-site:linkedin.com/jobs "Data Engineer" Zurich OR Geneva OR Basel
-site:linkedin.com/jobs "Senior Data Engineer" Switzerland
-site:linkedin.com/jobs "Big Data Engineer" Switzerland
-site:linkedin.com/jobs "Data Engineer" Luxembourg
-site:linkedin.com/jobs "Senior Data Engineer" Luxembourg
 ```
 
 **Indeed (per country):**
@@ -86,8 +77,6 @@ site:indeed.co.uk "ETL Developer"
 site:indeed.co.uk "Data Pipeline Engineer"
 site:indeed.ae "Data Engineer" Dubai
 site:indeed.ae "Senior Data Engineer"
-site:indeed.ch "Data Engineer" English
-site:indeed.lu "Data Engineer"
 ```
 
 **Country-specific boards:**
@@ -100,25 +89,22 @@ site:gulftalent.com "Data Engineer" UAE
 site:reed.co.uk "Data Engineer"
 site:reed.co.uk "Senior Data Engineer"
 site:totaljobs.com "Data Engineer"
-site:jobs.ch "Data Engineer" English
-site:swissdevjobs.ch "Data Engineer"
-site:moovijob.com "Data Engineer" Luxembourg
 ```
 
 ### Priority 2: Data Platform & Architecture
 
 ```
-site:linkedin.com/jobs "Data Platform Engineer" Germany OR UK OR UAE OR Switzerland OR Luxembourg
-site:linkedin.com/jobs "Analytics Engineer" Germany OR UK OR UAE OR Switzerland OR Luxembourg
-site:linkedin.com/jobs "Data Architect" Germany OR UK OR UAE OR Switzerland OR Luxembourg
-site:linkedin.com/jobs "Cloud Data Engineer" Germany OR UK OR UAE OR Switzerland
+site:linkedin.com/jobs "Data Platform Engineer" Germany OR UK OR UAE
+site:linkedin.com/jobs "Analytics Engineer" Germany OR UK OR UAE
+site:linkedin.com/jobs "Data Architect" Germany OR UK OR UAE
+site:linkedin.com/jobs "Cloud Data Engineer" Germany OR UK OR UAE
 ```
 
 ### Priority 3: Keyword-based (tech stack match)
 
 ```
 site:linkedin.com/jobs Kafka Spark "Data Engineer" Germany OR UK
-site:linkedin.com/jobs Airflow dbt "Data Engineer" Germany OR UK OR Switzerland
+site:linkedin.com/jobs Airflow dbt "Data Engineer" Germany OR UK
 site:linkedin.com/jobs Databricks "Data Engineer" Germany OR UK OR UAE
 site:linkedin.com/jobs "Data Mesh" engineer Germany OR UK
 site:linkedin.com/jobs "real-time" "data pipeline" Germany OR UK OR UAE
@@ -151,47 +137,31 @@ site:careers.wise.com "Data Engineer"
 site:deliveroo.com/careers "Data Engineer"
 ```
 
-**Switzerland:**
-```
-site:careers.google.com "Data Engineer" Zurich
-site:ubs.com/careers "Data Engineer"
-```
-
-**Luxembourg:**
-```
-site:amazon.jobs "Data Engineer" Luxembourg
-site:careers.pwc.com "Data Engineer" Luxembourg
-```
-
-### Priority 5: Global Remote (Profile 6)
+### Priority 5: USA Remote (Profile 4)
 
 **LinkedIn (remote filter):**
 ```
 site:linkedin.com/jobs "Data Engineer" remote
 site:linkedin.com/jobs "Senior Data Engineer" remote
 site:linkedin.com/jobs "Data Platform Engineer" remote
-site:linkedin.com/jobs "Analytics Engineer" remote
 site:linkedin.com/jobs Kafka Spark "Data Engineer" remote
-site:linkedin.com/jobs Airflow dbt "Data Engineer" remote
 site:linkedin.com/jobs Databricks "Data Engineer" remote
 ```
 
 **Remote-first job boards (WebSearch fallback):**
 ```
 site:wellfound.com/jobs "Data Engineer" remote
-site:otta.com "Data Engineer" remote
 site:workatastartup.com "Data Engineer"
 site:weworkremotely.com "Data Engineer"
 site:remoteok.com "Data Engineer"
-site:hired.com "Data Engineer" remote
 ```
 
 **Notes:**
 - LinkedIn CLI: use `--remote remote` flag for remote-only results
 - Freehire CLI: use `--remote remote` flag
-- Candidate works from Turkey (UTC+3) — best overlap with EU/UK/East-Coast US timezones
-- EOR/contractor arrangement acceptable — many remote-first startups use Deel, Remote.com, Oyster
-- Filter out roles requiring specific country residency (e.g. "must be US-based") unless remote-from-anywhere is explicit
+- Candidate works from Turkey (UTC+3) — best overlap with US East Coast
+- EOR/contractor arrangement acceptable (Deel, Remote.com, Oyster)
+- Filter out roles requiring US residency unless remote-from-anywhere is explicit
 
 ## Exclusion Keywords
 
@@ -224,20 +194,10 @@ site:hired.com "Data Engineer" remote
 - London, Manchester, Edinburgh, Birmingham, Bristol, Cambridge ✅
 - Remote from UK ✅
 
-### Switzerland
-- Zurich, Geneva, Basel, Bern ✅
-- Remote from Switzerland ✅
-
-### Luxembourg
-- Luxembourg City ✅
-- Remote from Luxembourg ✅
-
-### Global Remote (Profile 6)
+### USA Remote (Profile 4)
 - Remote-first / remote-from-anywhere ✅
-- Remote within EU/EEA ✅ (candidate in Turkey, but EOR/contractor arrangement works)
 - Remote within US only ❌ (unless explicitly allows international remote)
-- Hybrid in non-target country ❌
-- Must be based in specific country (not Turkey) ❌
+- Must be US-based ❌
 
 ## Language Filter
 
@@ -260,7 +220,5 @@ Jobs posted within last 14 days, or open deadline. Unknown date → include but 
 - "/scrape germany" → Profile 1 only
 - "/scrape uae" → Profile 2 only
 - "/scrape uk" → Profile 3 only
-- "/scrape switzerland" → Profile 4 only
-- "/scrape luxembourg" → Profile 5 only
-- "/scrape remote" → Profile 6 only
+- "/scrape remote" or "/scrape usa" → Profile 4 only
 - "/scrape all" → All profiles
