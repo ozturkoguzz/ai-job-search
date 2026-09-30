@@ -28,6 +28,7 @@ The `site:` query templates in this file are the **WebSearch fallback** — for 
 2. 🇦🇪 UAE — all roles
 3. 🇬🇧 UK — all roles
 4. 🇺🇸 USA Remote — remote-first companies hiring internationally
+5. 🇺🇸 USA Contract — remote/hybrid contract engagements
 
 ## Search Sites
 
@@ -166,6 +167,31 @@ site:arc.dev "Data Engineer" remote
 - EOR/contractor arrangement acceptable (Deel, Remote.com, Oyster)
 - Filter out roles requiring US residency unless remote-from-anywhere is explicit
 
+### Priority 6: USA Contract (Profile 5)
+
+**LinkedIn (contract filter):**
+```
+site:linkedin.com/jobs "Data Engineer" contract remote
+site:linkedin.com/jobs "Senior Data Engineer" contract remote
+site:linkedin.com/jobs "Data Engineer" "C2C" remote
+site:linkedin.com/jobs "Data Engineer" contractor remote
+site:linkedin.com/jobs Databricks "Data Engineer" contract
+site:linkedin.com/jobs Spark Kafka "Data Engineer" contract remote
+```
+
+**Staffing & contract platforms (WebSearch fallback):**
+```
+site:toptal.com "Data Engineer"
+site:upwork.com "Data Engineer" contract
+site:linkedin.com/jobs "Data Engineer" contract "6 month" OR "12 month" OR "3 month"
+```
+
+**Notes:**
+- LinkedIn CLI: use `--remote remote` and add "contract" to search keywords
+- Target 3-12 month engagements
+- Can invoice via US LLC or international contractor agreement
+- Filter out roles requiring US citizenship, security clearance, or on-site only
+
 ## Exclusion Keywords
 
 **Exclude any job posting whose description contains these keywords/phrases:**
@@ -202,6 +228,14 @@ site:arc.dev "Data Engineer" remote
 - Remote within US only ❌ (unless explicitly allows international remote)
 - Must be US-based ❌
 
+### USA Contract (Profile 5)
+- Remote contract ✅
+- Hybrid contract (if no on-site requirement) ✅
+- Contract via staffing agency (W-2 or 1099) ✅
+- C2C (corp-to-corp) via US LLC ✅
+- Requires US citizenship or security clearance ❌
+- On-site only ❌
+
 ## Language Filter
 
 **English-language postings only across all profiles.**
@@ -224,4 +258,5 @@ Jobs posted within last 14 days, or open deadline. Unknown date → include but 
 - "/scrape uae" → Profile 2 only
 - "/scrape uk" → Profile 3 only
 - "/scrape remote" or "/scrape usa" → Profile 4 only
+- "/scrape contract" → Profile 5 only
 - "/scrape all" → All profiles

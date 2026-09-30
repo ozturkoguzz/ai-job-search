@@ -114,6 +114,14 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 - **Portals:** LinkedIn (--remote remote), Wellfound, Otta, YC Work at a Startup, We Work Remotely, RemoteOK
 - **Notes:** Best timezone overlap with US East Coast. Filter out roles requiring US residency unless "remote-from-anywhere" is explicit. Tax residency remains Turkey.
 
+#### Profile 5: USA Contract (remote/hybrid contract roles)
+- **Location:** Remote or hybrid — USA-based companies hiring contractors
+- **Language filter:** English-language postings only
+- **Role types:** Contract Data Engineer, Senior Data Engineer (Contract), Data Engineer (C2C), Data Platform Engineer (Contract)
+- **Work arrangement:** W-2 contract via staffing agency, 1099/C2C via US LLC, or international contractor
+- **Portals:** LinkedIn (contract filter), Upwork, Toptal
+- **Notes:** Targeting 3-12 month contract engagements. Can invoice via US LLC entity. UTC+3 timezone — 4-6 hour overlap with US East Coast business hours. Filter out roles requiring on-site presence or US citizenship/clearance.
+
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)
 - `cover_letters/` - LaTeX cover letters (custom cover.cls template)
